@@ -7,7 +7,7 @@ extends Node
 
 
 const Player = preload("res://player.tscn")
-const PORT = 9999
+const PORT = 50000
 var enet_peer = ENetMultiplayerPeer.new()
 
 func _unhandled_input(event):
