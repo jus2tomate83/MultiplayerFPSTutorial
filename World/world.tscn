@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://c8oqxmm2w2wvv"]
 
-[ext_resource type="Script" path="res://world.gd" id="1_6tkge"]
-[ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://environment.tscn" id="1_iktak"]
-[ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_ehmxv"]
+[ext_resource type="Script" path="res://World/world.gd" id="1_03qlh"]
+[ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://World/environment.tscn" id="2_d6caa"]
+[ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_p6341"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -24,7 +24,7 @@ bg_color = Color(1, 0.117647, 0, 1)
 bg_color = Color(0.00392157, 1, 0, 1)
 
 [node name="World" type="Node"]
-script = ExtResource("1_6tkge")
+script = ExtResource("1_03qlh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -33,7 +33,7 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6knbf")
 
-[node name="Environment" parent="." instance=ExtResource("1_iktak")]
+[node name="Environment" parent="." instance=ExtResource("2_d6caa")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -97,7 +97,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.03, 0.03)
 pivot_offset = Vector2(576, 324)
-texture = ExtResource("3_ehmxv")
+texture = ExtResource("3_p6341")
 stretch_mode = 5
 
 [node name="HealthBar" type="ProgressBar" parent="CanvasLayer/HUD"]
@@ -118,7 +118,7 @@ value = 3.0
 show_percentage = false
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://player.tscn")
+_spawnable_scenes = PackedStringArray("res://Player/player.tscn")
 spawn_path = NodePath("..")
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
